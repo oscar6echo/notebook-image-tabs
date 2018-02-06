@@ -16,7 +16,7 @@ pip install display_image_tabs
 
 ## 2 - User Guide
 
-See the [demo notebook](TBD).
+See the [demo notebook](https://nbviewer.jupyter.org/github/oscar6echo/notebook-image-tabs/blob/master/demo_image_tabs.ipynb).
 
 The data must be input as follows
 
