@@ -9,26 +9,26 @@
     ];
     console.log(data);
 
-    let uuid = "__$data.uuid$__";
+    let uuid = '__$data.uuid$__';
     let sel = __$data.selection$__;
 
     let width = __$data.width$__;
     let height = __$data.height$__;
     let borderPx = __$data.borderPx$__;
-    let borderColor = "__$data.borderColor$__";
-    let tabBackgroundColor = "__$data.tabBackgroundColor$__";
+    let borderColor = '__$data.borderColor$__';
+    let tabBackgroundColor = '__$data.tabBackgroundColor$__';
     let buttonMargin = __$data.buttonMargin$__;
     let buttonPaddingVert = __$data.buttonPaddingVert$__;
     let buttonPaddingHori = __$data.buttonPaddingHori$__;
-    let buttonBorderColor = "__$data.buttonBorderColor$__";
+    let buttonBorderColor = '__$data.buttonBorderColor$__';
     let imageWidthPerCent = __$data.imageWidthPerCent$__;
 
-    let buttonColorBase = "__$data.buttonColorBase$__";
-    let buttonColorHover = "__$data.buttonColorHover$__";
-    let buttonColorActive = "__$data.buttonColorActive$__";
+    let buttonColorBase = '__$data.buttonColorBase$__';
+    let buttonColorHover = '__$data.buttonColorHover$__';
+    let buttonColorActive = '__$data.buttonColorActive$__';
 
     // BUILD CSS
-    var style = document.createElement("style");
+    var style = document.createElement('style');
     document.head.appendChild(style);
     let sheet = style.sheet;
 
@@ -94,6 +94,7 @@
     sheet.insertRule(
     `.image-${uuid} { 
             margin: auto;
+            margin-top: 1em;
             width: __$data.imageWidthPerCent$__%;
         }`,
     0
@@ -101,11 +102,11 @@
 
     let container = document.getElementById(`container-${uuid}`);
 
-    let tabs = document.createElement("div");
+    let tabs = document.createElement('div');
     tabs.className = `tab-${uuid}`;
     container.appendChild(tabs);
 
-    let images = document.createElement("div");
+    let images = document.createElement('div');
     images.className = `image-container-${uuid}`;
     container.appendChild(images);
 
@@ -113,14 +114,14 @@
     let arr_image = [];
 
     for (let datum of data) {
-    let img = document.createElement("img");
+    let img = document.createElement('img');
     img.src = datum[1];
     img.src = `data:image/png;base64,${datum[1]}`;
 
     img.className = `image-${uuid}`;
-    img.style.display = "none";
+    img.style.display = 'none';
 
-    let button = document.createElement("button");
+    let button = document.createElement('button');
     button.innerHTML = datum[0];
 
     tabs.appendChild(button);
@@ -134,25 +135,25 @@
     let button = arr_button[k];
 
     let button_clicked = function() {
-        console.log(datum[0] + " clicked");
+        console.log(datum[0] + ' clicked');
 
         for (let [i, img] of arr_image.entries()) {
         if (i != k) {
-            img.style.display = "none";
-            arr_button[i].classList.remove("active");
+            img.style.display = 'none';
+            arr_button[i].classList.remove('active');
         } else {
-            img.style.display = "block";
-            arr_button[i].classList.add("active");
+            img.style.display = 'block';
+            arr_button[i].classList.add('active');
         }
         }
     };
-    button.addEventListener("click", button_clicked);
+    button.addEventListener('click', button_clicked);
     }
 
     for (let [k, img] of arr_image.entries()) {
     if (k == sel) {
-        img.style.display = "block";
-        arr_button[k].classList.add("active");
+        img.style.display = 'block';
+        arr_button[k].classList.add('active');
     }
     }
 })()
