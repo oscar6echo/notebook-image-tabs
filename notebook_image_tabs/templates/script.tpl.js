@@ -12,7 +12,10 @@
     let uuid = '__$data.uuid$__';
     let sel = __$data.selection$__;
 
-    let width = __$data.width$__;
+	{-% if data.titleText is defined %-}
+	let titleText = '__$data.titleText$__';
+	{-% endif %-}
+	let width = __$data.width$__;
     let height = __$data.height$__;
     let borderPx = __$data.borderPx$__;
     let borderColor = '__$data.borderColor$__';
@@ -100,7 +103,28 @@
     0
     );
 
-    let container = document.getElementById(`container-${uuid}`);
+    sheet.insertRule(
+		`.title-${uuid} { 
+            width: ${width}px;
+            padding: 3px;
+			font-size: 17px;
+			font-weight: bold;
+			text-align: center;
+			width: ${width}px;
+			border: ${borderPx}px solid ${borderColor};
+			border-bottom: none;
+		}`,
+		0
+		);
+	
+	let container = document.getElementById(`container-${uuid}`);
+
+	{-% if data.titleText is defined %-}
+    let title = document.createElement('div');
+	title.className = `title-${uuid}`;
+	title.innerHTML = titleText;
+	container.appendChild(title);
+	{-% endif %-}
 
     let tabs = document.createElement('div');
     tabs.className = `tab-${uuid}`;

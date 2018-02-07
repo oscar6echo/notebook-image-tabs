@@ -22,6 +22,7 @@ class Params:
         self.uuid = random.randint(0, int(1e9))
 
         self.data = data
+        self.titleText = None
         self.borderPx = 0
         self.borderColor = 'white'
         self.tabBackgroundColor = 'white'
@@ -42,7 +43,6 @@ class Params:
         self.valid = self.check(verbose=verbose)
 
         self.data = self.build_data()
-
 
     def check(self, verbose=False):
         """
