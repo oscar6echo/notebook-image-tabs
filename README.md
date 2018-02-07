@@ -10,7 +10,7 @@ This is a convenience Python package to display image tabs in a Jupyter notebook
 From terminal
 
 ```bash
-pip install display_image_tabs
+pip install notebook_image_tabs
 ```
 
 
