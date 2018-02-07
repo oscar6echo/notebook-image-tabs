@@ -3,7 +3,7 @@ __name__ = 'notebook_image_tabs'
 name_url = __name__.replace('_', '-')
 
 __packages__ = [__name__]
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 __description__ = 'display several images under tabs'
 __long_description__ = 'See repo README'
 __author__ = 'oscar6echo'
