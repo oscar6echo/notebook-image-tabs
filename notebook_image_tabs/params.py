@@ -21,6 +21,11 @@ class Params:
         # attributes
         self.uuid = random.randint(0, int(1e9))
 
+        self.width = 960
+        self.height = 500
+        self.widthIframe = None
+        self.heightIframe = None
+
         self.data = data
         self.titleText = None
         self.borderPx = 0
@@ -40,8 +45,14 @@ class Params:
 
         for k, v in kwargs.items():
             setattr(self, k, v)
-        self.valid = self.check(verbose=verbose)
 
+        if not self.widthIframe:
+            self.widthIframe = self.width + 2 * self.borderPx
+        if not self.heightIframe:
+            isTitle = self.titleText is not None
+            self.heightIframe = self.height + 30 * isTitle + 50 + 2 * self.borderPx + 5
+
+        self.valid = self.check(verbose=verbose)
         self.data = self.build_data()
 
     def check(self, verbose=False):

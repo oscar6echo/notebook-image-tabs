@@ -38,6 +38,13 @@ The layout params are as follows
 # all params are CSS variables
 # default values below
 dic_param = {
+    # title
+    'titleText': None, # above tabs in bold font
+    # dimensions
+    'width': 960, # width in pixel
+    'height': 500, # height in pixel
+    'widthIframe': None, # automatically calculated - should not require manual tampering
+    'heightIframe': None, # automatically calculated - may require manual tampering if word wrap
     # border around tab and image container
     'borderPx': 0, # border in pixel
     'borderColor': 'gray', # border color
@@ -69,7 +76,18 @@ To display the image tabs
 # create object
 t = ImageTabs(data=data, params=dic_param)
 
+# create object in iframe
+t = ImageTabs(data=data, params=dic_param, iframe=True)
+
 # display
 t.show()
 ```
+
+### 2.1 - IFrame
+
+Why the `iframe` option ?
+
++ To make the package compatible with [JupyterLab](https://github.com/jupyterlab/jupyterlab) which disables javascript injection.
+
++ Note that even in the classical notebook there is no downside in using the iframe option - except possibly a bit more tampering with the iframe dimensions. 
 

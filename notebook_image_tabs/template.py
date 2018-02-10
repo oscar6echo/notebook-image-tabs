@@ -12,7 +12,8 @@ class Template:
     """
 
     def __init__(self,
-                 params=None):
+                 params=None,
+                 iframe=True):
         """
         """
 
@@ -28,7 +29,11 @@ class Template:
                              block_end_string='%-}'
                              )
 
-        template_name = 'main.tpl.html'
+        if iframe:
+            template_name = 'iframe.tpl.html'
+        else:
+            template_name = 'main.tpl.html'
+
         template = env.get_template(template_name)
 
         msg = 'params must be an instance of Param'
