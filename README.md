@@ -73,11 +73,11 @@ dic_param = {
 To display the image tabs
 
 ```Python
-# create object
+# create object in iframe
 t = ImageTabs(data=data, params=dic_param)
 
-# create object in iframe
-t = ImageTabs(data=data, params=dic_param, iframe=True)
+# create object in main page
+t = ImageTabs(data=data, params=dic_param, iframe=False)
 
 # display
 t.show()
