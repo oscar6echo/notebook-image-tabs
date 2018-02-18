@@ -23,7 +23,8 @@ __classifiers__ = ['Development Status :: 4 - Beta',
 __include_package_data__ = True
 __package_data__ = {
     'templates':
-        ['templates/main.tpl.html',
+        ['templates/iframe.tpl.html',
+         'templates/main.tpl.html',
          'templates/script.tpl.js'
         ],
 }
